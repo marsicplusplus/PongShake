@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scripts/BallEffect.gd" type="Script" id=1]
+[ext_resource path="res://Res/BallEffect.png" type="Texture" id=2]
+
+[node name="BallEffect" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = true
+playback/speed = 1.0
+
+[connection signal="tween_complete" from="Tween" to="." method="_on_Tween_tween_complete"]
+
+
